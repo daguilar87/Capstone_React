@@ -1,85 +1,50 @@
-import { useState } from "react";
-import axios from "axios";
-import hero from '../styles/images/hero.jpg'
-import '../styles/home.css'
+import { Zoom } from 'react-reveal';
+import slide1 from '../styles/images/slide1.jpg'
+import slide2 from '../styles/images/slide2.jpg'
+import slide3 from '../styles/images/slide3.jpg'
+import slide4 from '../styles/images/slide4.jpg'
+import hero2 from '../styles/images/hero2.jpg'
+import Slide from 'react-reveal/Slide';
 
-const HomeView = () => {
-  const local_url_1 = 'http://127.0.0.1:5000/shop';
-  const local_url_2 = 'http://127.0.0.1:5000/shops';
-
-  const [services1, setServices1] = useState([]);
-  const [services2, setServices2] = useState([]);
-
-  const getServiceData = async (url) => {
-    let response = await axios.get(url);
-    return response.status === 200 ? response.data : null
-  }
-
-  const loadServiceData = async () => {
-    let data1 = await getServiceData(local_url_1);
-    let data2 = await getServiceData(local_url_2);
-    console.log(data1, typeof data1);
-    console.log(data2, typeof data2);
-    setServices1(data1.data);
-    setServices2(data2.data);
-  }
-
-  useState(() => loadServiceData());
-
+function HomeView() {
   return (
-    <div>
-      <div className="hero min-h-screen" style={{ backgroundImage: `url(${hero})`,marginBottom: '50px' }}>
+    <div className="text-center">
+      <div className="hero min-h-screen" style={{ backgroundImage: `url(${hero2})`, marginBottom: '60px', marginTop:"5px" }}>
         <div className="hero-overlay bg-opacity-500"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold">Auto Detailing Services</h1>
-            <p className="mb-5 text-3xl font-bold">Providing top-quality detailing services at your doorstep</p>
-            <a href="/contact" class="btn btn-primary">Contact Us</a>
-
-          </div>
+          <Zoom left delay={500} duration={2000}>
+            <div className="max-w-md">
+              <h1 className="mb-5 text-5xl font-bold">Auto Detailing Services</h1>
+              <p className="mb-5 text-3xl font-bold">Providing top-quality detailing services at your doorstep</p>
+              <a href="/contact" className="btn btn-primary">Contact Us</a>
+            </div>
+          </Zoom>
         </div>
       </div>
-      <div className="flex flex-row gap-4">
-        {console.log(services1, typeof services1)}
-        {console.log(services2, typeof services2)}
-        {typeof services1 === 'object' && !services1.then ? services1.map((service, index) => (
-          <div className="card w-96 bg-base-100 shadow-xl m-10" key={index}>
-            <div className="card-body">
-              <h2 className="card-title">{service.name}</h2>
-              <p>{service.details1}</p>
-              <p>{service.details2}</p>
-              <p>{service.details3}</p>
-              <p>{service.details4}</p>
-              <p>{service.details5}</p>
-              <p>{service.details6}</p>
-              <p>{service.details7}</p>
-              <p>{service.details8}</p>
-              <p>$ {service.price}</p>
-              <div className="card-actions justify-end">
-              </div>
-            </div>
-          </div>
-        )) : (
-          <div>Loading...</div>
-        )}
-        {typeof services2 === 'object' && !services2.then ? services2.map((service, index) => (
-          <div className="card w-96 bg-base-100 shadow-xl m-10" key={index}>
-            <div className="card-body">
-              <h2 className="card-title">Add-Ons</h2>
-              <p>-{service.det1}</p>
-              <p>-{service.det2}</p>
-              <p>-{service.det3}</p>
-              <p>-{service.det4}</p>
-              <div className="card-actions justify-end">
-              </div>
-            </div>
-          </div>
-        )) : (
-          <div>Loading...</div>
-        )}
+
+      <div><h1 className="text-lg font-bold text-center mb-4">Before & After</h1></div>
+      <div className="flex flex-col w-full">
+    <div className="divider "></div>
+      <div className="card-container before" style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+      <Slide bottom><div className="card w-96 bg-base-100 shadow-xl" id="x">
+          <figure><img src={slide1} alt="before/after" id="y"/></figure>
+        </div></Slide>
+        <Slide bottom><div className="card w-96 bg-base-100 shadow-xl" id="x">
+          <figure><img src={slide2} alt="before/after" id="y" /></figure>
+        </div></Slide>
+        <Slide bottom><div className="card w-96 bg-base-100 shadow-xl" id="x">
+          <figure><img src={slide3} alt="before/after" id="y"/></figure>
+        </div></Slide>
+        <Slide bottom><div className="card w-96 bg-base-100 shadow-xl" id ="x">
+          <figure><  img src={slide4} alt="before/after" id="y"/></figure>
+        </div></Slide>
+        </div>
       </div>
     </div>
+
   );
 }
 
 export default HomeView;
+
+

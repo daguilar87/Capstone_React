@@ -1,4 +1,5 @@
-import logo1 from '../styles/images/logo1.png'
+import Slide from 'react-reveal/Slide';
+
 const Navbar = () => {
     return (
 <div className="navbar bg-base-100">
@@ -9,14 +10,17 @@ const Navbar = () => {
       </label>
       <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
         <li><a href='/'>Homepage</a></li>
+        <li><a href='/services'>Services</a></li>
         <li><a href='/contact'>Contact</a></li>
-        <li><a href='/'>About</a></li>
+        <li><a href='/aboutus'>About</a></li>
       </ul>
     </div>
   </div>
-  <div className="navbar-center">
-    <a  className="center" href='/' ><img src={logo1} alt='logo' width= '100' height='50'/></a>
-  </div>
+  <Slide top>
+  <div className="navbar-center" style={{ position: 'relative', left: '-90px' }}>
+  <a href="/" className="btn btn-ghost normal-case text-xl">RGJ Solutions</a>
+</div>
+</Slide>
 </div>
     )
 };

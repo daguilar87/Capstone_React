@@ -1,8 +1,8 @@
-.card {
+/* .card {
     border-radius: 10px;
     border: 2px solid rgb(13, 177, 13);
     
-  }
+  } */
 
   .footer {
     
@@ -10,3 +10,61 @@
     z-index: 999;
     margin-top: 150px;
   }
+
+  #y{
+    border-radius: 12px;
+  }
+
+  .before{
+    margin: 70px;
+    
+  }
+
+  .hero {
+    background-position: center -1350px;
+  }
+
+#contact-card{
+  border: 2px solid white;
+  height: 350px;
+}
+
+#form{
+  border: 1px solid white;
+  border-radius: 12px;
+  height: 350px;
+  width: 600px;
+}
+
+#map{
+  height: 350px;
+}
+
+#submit{
+  width: 400px;
+  margin-top: 10px;
+  
+}
+
+#about{
+  border-radius: 12px;
+}
+
+#card-image {
+  width: 400px;
+  height: 300px;
+}
+
+#add{
+  width: 250px;
+  height: 250px;
+  border-radius: 10px;
+  margin-left: 10px;
+  
+}
+
+#addon{
+  border: 1px solid white;
+  margin: 10px;
+  margin-left: 10px;
+}
