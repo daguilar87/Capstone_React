@@ -86,7 +86,7 @@ const Contact = () => {
     </label>
     <input type="text" id="message" name="message" placeholder="Message" className="input input-bordered input-lg w-full px max-w-lg mx-auto" />
   </div>
-  <button type="submit" className="btn btn-outline btn-success mx-auto" id="submit">
+  <button type="submit" className="btn btn-outline mx-auto" id="submit">
     Submit
   </button>
 </form>
