@@ -21,8 +21,17 @@
   }
 
   .hero {
+    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center -1350px;
   }
+  
+  @media (max-width: 1465px) {
+    .hero {
+      background-position: center center;
+    }
+  }
+  
 
 #contact-card{
   border: 2px solid white;
