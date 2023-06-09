@@ -10,13 +10,24 @@
     z-index: 999;
     margin-top: 150px;
   }
+  @media (max-width: 1675px) {
+    .footer{
+      margin-top: 40px;
+    }
+  }
 
   #y{
     border-radius: 12px;
   }
 
   .before{
-    margin: 70px;
+    margin: 30px;
+    
+  }
+  @media (max-width: 1675px ) {
+    .card{
+      margin: 40px;
+    }
     
   }
 
