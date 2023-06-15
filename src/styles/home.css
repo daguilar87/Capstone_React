@@ -88,3 +88,21 @@
   margin: 10px;
   margin-left: 10px;
 }
+
+
+@media (max-width: 767px) {
+  .card.card-side {
+    flex-direction: column;
+  }
+
+  .card.card-side .card-body {
+    order: 2;
+  }
+
+  .card.card-side figure {
+    order: 1;
+    margin-bottom: 20px;
+  }
+}
+
+

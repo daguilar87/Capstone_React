@@ -32,7 +32,7 @@ const Services = () => {
     <div><h1 className="text-3xl font-bold text-center">Mobile & Drop Off Services Available</h1></div>
 
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-wrap">
         {typeof services1 === 'object' && !services1.then ? services1.map((service, index) => (
           <Slide key={index} left duration={500}>
             <div className="card w-96 bg-base-100 shadow-xl image-full m-20" key={index}>
