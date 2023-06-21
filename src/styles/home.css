@@ -105,4 +105,31 @@
   }
 }
 
+@media (min-width: 768px) {
+  .contact-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .form-container {
+    flex: 1;
+    margin-right: 2rem;
+  }
+
+  .card-container {
+    flex: 1;
+    margin-left: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .form-container,
+  .card-container {
+    margin: 0;
+  }
+}
 
