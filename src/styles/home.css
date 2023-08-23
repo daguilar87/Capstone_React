@@ -47,22 +47,29 @@
 #contact-card{
   border: 2px solid white;
   height: 350px;
+  text-align: center;
+  border-radius: 12px;
+  width: 100%;
+  padding: 20px;
 }
 
 #form{
-  border: 1px solid white;
+  border: 2px solid white;
   border-radius: 12px;
   height: 350px;
-  width: 600px;
+  width: 100%;
 }
 
 #map{
   height: 350px;
+  width: 100%;
 }
 
 #submit{
-  width: 400px;
+  width: auto;
   margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
   
 }
 
@@ -109,6 +116,8 @@
   .contact-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+ 
   }
 
   .form-container {
@@ -120,11 +129,13 @@
     flex: 1;
     margin-left: 2rem;
   }
+
 }
 
 @media (max-width: 767px) {
   .contact-container {
     flex-direction: column;
+    
   }
 
   .form-container,
@@ -133,3 +144,20 @@
   }
 }
 
+.card-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 15px;
+}
+
+
+#contact-card {
+  width: auto;
+  border: 2px solid white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
