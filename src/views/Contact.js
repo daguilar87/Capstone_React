@@ -7,7 +7,7 @@ const Contact = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    fetch("http://127.0.0.1:5000/api/contact", {
+    fetch("https://rgjcs.onrender.com/api/contact", {
       method: "POST",
       body: formData,
     })

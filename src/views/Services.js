@@ -5,8 +5,8 @@ import addon from '../styles/images/addon.jpg'
 
 
 const Services = () => {
-  const local_url_1 = 'http://127.0.0.1:5000/shop';
-  const local_url_2 = 'http://127.0.0.1:5000/shops';
+  const local_url_1 = 'https://rgjcs.onrender.com/shop';
+  const local_url_2 = 'https://rgjcs.onrender.com/shops';
 
   const [services1, setServices1] = useState([]);
   const [services2, setServices2] = useState([]);
