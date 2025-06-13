@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
-  const [formState, setFormState] = useState({});
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -14,10 +14,12 @@ const Contact = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        window.location.reload();
+        toast.success("✅ Your message has been sent!");
+        event.target.reset();
       })
       .catch((error) => {
         console.error(error);
+        toast.error("❌ Something went wrong. Please try again.");
       });
   };
 
@@ -29,22 +31,20 @@ const Contact = () => {
       center: position,
     });
 
-    const marker = new window.google.maps.Marker({
+    new window.google.maps.Marker({
       map,
       position,
       title: "RGJ Solutions LLC",
     });
   }, []);
 
-  const handleChange = (event) => {
-    setFormState({ ...formState, [event.target.id]: event.target.value });
-  };
-
   return (
     <div className="flex flex-col w-full py-6 px-2 md:px-6 lg:px-8 xl:px-12">
+      <ToastContainer />
       <h1 className="text-2xl font-bold text-center pb-12 md:text-3xl">
         Request An Appointment
       </h1>
+
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 mb-4 md:mb-0">
           <form id="form" className="flex flex-col gap-2" onSubmit={handleSubmit}>
@@ -52,17 +52,17 @@ const Contact = () => {
               <div className="flex gap-0.5">
                 <div className="flex-1">
                   <label htmlFor="name" className="m-3">Name</label>
-                  <input type="text" id="name" name="name" className="input input-bordered w-full max-w-md" />
+                  <input type="text" id="name" name="name" className="input input-bordered w-full max-w-md" required />
                 </div>
                 <div className="flex-1">
                   <label htmlFor="phone" className="m-3">Phone</label>
-                  <input type="text" id="phone" name="phone" className="input input-bordered w-full max-w-md" />
+                  <input type="text" id="phone" name="phone" className="input input-bordered w-full max-w-md" required />
                 </div>
               </div>
               <div className="flex gap-0.5">
                 <div className="flex-1">
                   <label htmlFor="email" className="m-3">Email</label>
-                  <input type="text" id="email" name="email" className="input input-bordered w-full max-w-xs" />
+                  <input type="email" id="email" name="email" className="input input-bordered w-full max-w-xs" required />
                 </div>
                 <div className="flex-1">
                   <label htmlFor="services" className="m-3">Services</label>
@@ -71,18 +71,15 @@ const Contact = () => {
               </div>
               <div className="flex flex-col gap-0.5">
                 <label htmlFor="message" className="m-3">Message</label>
-                <textarea id="message" name="message" className="input input-bordered input-lg w-full max-w-lg mx-auto"></textarea>
+                <textarea id="message" name="message" className="input input-bordered input-lg w-full max-w-lg mx-auto" />
               </div>
-              <button
-                type="submit"
-                className="btn btn-outline w-full md:w-auto"
-                id="submit"
-              >
+              <button type="submit" className="btn btn-outline w-full md:w-auto" id="submit">
                 Submit
               </button>
             </div>
           </form>
         </div>
+
         <div className="flex-1">
           <div className="card-container">
             <div id="contact-card" className=" bg-base-100 shadow-xl">
@@ -101,6 +98,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
+
         <div className="flex-1 mx-6 mb-52 mapz">
           <div id="map" style={{ width: "100%", height: "350px" }}></div>
         </div>
